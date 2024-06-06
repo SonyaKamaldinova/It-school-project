@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/main"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_height="fill_parent"
+	android:layout_width="fill_parent"
+	android:background="#FFFFFF">
+
+	<LinearLayout
+		android:id="@+id/header"
+		android:layout_width="fill_parent"
+		android:layout_height="70dip"
+		android:background="#00B8D4"
+		android:orientation="horizontal">
+
+		<TextView
+			android:id="@+id/textView1"
+			android:layout_width="250dip"
+			android:layout_height="fill_parent"
+			android:paddingLeft="10dip"
+			android:paddingRight="10dip"
+			android:layout_marginLeft="15dip"
+			android:textSize="40dip"
+			android:text="All lists"
+			android:textColor="#FFFFFF"/>
+
+		<Button
+			android:id="@+id/btnAddNewList"
+			android:layout_width="80dip"
+			android:layout_height="wrap_content"
+			android:layout_margin="3dip"
+			android:background="#0091EA"
+			android:paddingLeft="10dip"
+			android:paddingRight="10dip"
+			android:text="+"
+			android:textColor="#FFFFFF"
+			android:textSize="30dip" />
+	</LinearLayout>
+		<ListView
+			android:id="@+id/listview"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:background="#FFFFFF">
+		</ListView>
+</LinearLayout>

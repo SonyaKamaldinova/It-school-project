@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  	android:layout_width="wrap_content" 
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="6dip"
+    android:paddingRight="6dip"
+    android:paddingBottom="3dip"        
+    >
+    <EditText
+        android:id="@+id/body"
+        android:layout_width="180dip"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dip"
+        android:maxLines="1"
+        android:scrollHorizontally="true" />
+    <Button
+        android:id="@+id/add"
+        android:layout_marginTop="4dip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:text="Save"
+        android:textColor="#0091EA"
+        android:textSize="18dip"/>
+
+</LinearLayout>
