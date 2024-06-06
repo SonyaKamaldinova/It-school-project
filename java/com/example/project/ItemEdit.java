@@ -22,11 +22,11 @@ public class ItemEdit extends Activity {
 		//because use this activity for edit and make item
 		if (nId == null) {
 			Bundle extras = getIntent().getExtras();
-			nId = extras != null ? (extras.getLong(DBAdapter.PRODUCTID)>0 ? extras.getLong(DBAdapter.PRODUCTID) : null) : null;}
+			nId = (extras != null) ? (extras.getLong(DBAdapter.PRODUCTID) > 0 ? extras.getLong(DBAdapter.PRODUCTID) : null) : null;}
 		if(nId != null) {
-			DBAdapter db=new DBAdapter(this);
+			DBAdapter db = new DBAdapter(this);
 			db.open();
-			Cursor c =db.getItem(nId) ;
+			Cursor c = db.getItem(nId) ;
 			nText.setText(c.getString(c.getColumnIndexOrThrow(DBAdapter.TITLE)));
 		    db.close();}
 		confirmButton.setOnClickListener(new View.OnClickListener() {
