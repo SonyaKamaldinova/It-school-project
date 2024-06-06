@@ -85,24 +85,24 @@ public class ShoppingListActivity extends ListActivity {
 	    	    	  fillData();
 	    	    	  isFirstTime =false;}
 	    	    	else{
-	    	    		mListId =_id;
-	    	    		fillData();}}});}
+			  mListId =_id;
+	    	    	  fillData();}}});}
 	
-    public static void SelectSpinnerItemByValue(Spinner spnr, long value)
-    {
+    public static void SelectSpinnerItemByValue(Spinner spnr, long value) {
         SimpleCursorAdapter adapter = (SimpleCursorAdapter) spnr.getAdapter();
         for (int position = 0; position < adapter.getCount(); position++)
         {if(adapter.getItemId(position) == value)
             {spnr.setSelection(position);
                 return;}}}
-	
+
+    //make menu for edit or delete item
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         menu.add(0, DELETE_ID, 0, R.string.menu_delete);
-        menu.add(0, EDIT_ID, 0, R.string.menu_edit);
-    }
-	
+        menu.add(0, EDIT_ID, 0, R.string.menu_edit);}
+
+    //edit or delete item
     @Override
     public boolean onContextItemSelected(MenuItem item) {
     	int res = item.getItemId();
@@ -134,8 +134,7 @@ public class ShoppingListActivity extends ListActivity {
         Cursor c = db.getAllItems(mListId);
         MyAdapter notes = new MyAdapter(this, c);
         setListAdapter(notes);
-        db.close();
-    }
+        db.close();}
 
     private class SpinnerAdapter extends ResourceCursorAdapter {
         public SpinnerAdapter(Context context, Cursor cur) {
