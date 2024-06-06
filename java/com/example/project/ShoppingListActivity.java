@@ -61,8 +61,8 @@ public class ShoppingListActivity extends ListActivity {
             btnGoToList.setOnClickListener( new View.OnClickListener() {
                 public void onClick(View v) {
                     finish();}});}
-        registerForContextMenu(getListView());
-		}
+        registerForContextMenu(getListView());}
+	
     public void fillListsSpinner(){
     	    DBAdapter db=new DBAdapter(this);
     	    db.open();
@@ -86,10 +86,8 @@ public class ShoppingListActivity extends ListActivity {
 	    	    	  isFirstTime =false;}
 	    	    	else{
 	    	    		mListId =_id;
-	    	    		fillData();}}
-                @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {}
-            });}
+	    	    		fillData();}}});}
+	
     public static void SelectSpinnerItemByValue(Spinner spnr, long value)
     {
         SimpleCursorAdapter adapter = (SimpleCursorAdapter) spnr.getAdapter();
@@ -97,12 +95,14 @@ public class ShoppingListActivity extends ListActivity {
         {if(adapter.getItemId(position) == value)
             {spnr.setSelection(position);
                 return;}}}
+	
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         menu.add(0, DELETE_ID, 0, R.string.menu_delete);
         menu.add(0, EDIT_ID, 0, R.string.menu_edit);
     }
+	
     @Override
     public boolean onContextItemSelected(MenuItem item) {
     	int res = item.getItemId();
@@ -121,6 +121,7 @@ public class ShoppingListActivity extends ListActivity {
                 startActivityForResult(i, ACTIVITY_EDIT);
             	return true;}
         return super.onContextItemSelected(item);}
+	
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
     	boolean result = super.onCreateOptionsMenu(menu);
@@ -139,19 +140,19 @@ public class ShoppingListActivity extends ListActivity {
     private class SpinnerAdapter extends ResourceCursorAdapter {
         public SpinnerAdapter(Context context, Cursor cur) {
             super(context, R.layout.spinner_row, cur);}
+	    
         @Override
         public View newView(Context context, Cursor cur, ViewGroup parent) {
             LayoutInflater li = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            return li.inflate(R.layout.spinner_row, parent, false);
-        }        
+            return li.inflate(R.layout.spinner_row, parent, false);}   
+	    
         @SuppressLint("Range")
         @Override
         public void bindView(View view, Context context, Cursor cur) {
         	TextView tv= (TextView)view.findViewById(R.id.tvListName);
             final long  listID = cur.getInt(cur.getColumnIndex(DBAdapter.LISTID));
-        	 tv.setText(cur.getString(cur.getColumnIndex(DBAdapter.LISTNAME)));
-        }
-    }
+        	 tv.setText(cur.getString(cur.getColumnIndex(DBAdapter.LISTNAME)));}}
+	
     private class MyAdapter extends ResourceCursorAdapter {
     	public boolean[] checked;	
         @SuppressLint({"Range", "SuspiciousIndentation"})
@@ -188,6 +189,7 @@ public class ShoppingListActivity extends ListActivity {
  	    	 db.open();                                 
              db.updateIsDone( rowID,isDone);
              db.close();}}
+	
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
